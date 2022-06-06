@@ -1,19 +1,18 @@
 {
-    "name": "monero-rpc-odoo-pos",
+    "name": "pos_payment_monero",
     "summary": "Allows you to accept Monero Payments within Odoo Point Of Sale",
     "author": "Monero Integrations",
     "website": "https://monerointegrations.com/",
     # Categories can be used to filter modules in modules listing
     # for the full list
-    "category": "Accounting",
-    "version": "14.0.0.0.1",
+    "category": "Sales/Point of Sale",
+    "version": "14.0.1.0.0",
     # any module necessary for this one to work correctly
     "depends": [
         "account",
-        "base_setup",
-        "web",
         "queue_job",
         "point_of_sale",
+        "base_monero",
     ],
     "external_dependencies": {"python": ["monero"]},
     # always loaded
