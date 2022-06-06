@@ -1,14 +1,17 @@
-Monero Odoo
+Base_Monero
 =========================
 
 
 [![Build Status](https://api.travis-ci.com/t-900-a/moneroodoo.svg?branch=main)](https://travis-ci.com/t-900-a/moneroodoo)
 [![codecov](https://codecov.io/gh/t-900-a/moneroodoo/branch/main/graph/badge.svg?token=10S5GGNRHH)](https://codecov.io/gh/t-900-a/moneroodoo)
 
-Allows you to accept Monero as Payment within your Odoo Ecommerce shop
+This module defines the Monero Currency.
+It acts as a base for the other integration modules.
+It sets the decimal precision to 12 digits. Depends on the oca module account_cryptocurrency to integrate monero in the accounting of odoo.
 
 Configuration
 =============
+
 
 * Monero - This quickstart guide can guide you through the configuration of Monero specific
 components. https://monero-python.readthedocs.io/en/latest/quickstart.html
@@ -22,15 +25,16 @@ components. https://monero-python.readthedocs.io/en/latest/quickstart.html
 * Odoo - Add-ons are installed by adding the specific module folder to the add-ons
   directory (restart
   required)
-    * queue-job
-        * https://github.com/OCA/queue
-    * monero-rpc-odoo-pos
+    * account_cryptocurrency
+        * https://github.com/OCA/currency/
+    * monero-rpc-odoo
         * https://github.com/monero-integrations/moneroodoo
         * The Monero payment acquirer is configured similar to other payment acquirers
             * https://www.odoo.com/documentation/user/14.0/general/payment_acquirers/payment_acquirers.html#configuration
     * Currency rate
-      * You will need to manually add currency rate for Monero
+      * You can enter the currency rate manually for Monero.
       * https://www.odoo.com/documentation/user/14.0/accounting/others/multicurrencies/how_it_works.html
+      * Or use any of the currency rate update apps of odoo. (See Helping modules)
     * Pricelist
         * A pricelist should be created specifically for Monero
         * https://www.odoo.com/documentation/user/14.0/website/publish/multi_website.html#pricelists
@@ -40,8 +44,18 @@ components. https://monero-python.readthedocs.io/en/latest/quickstart.html
 Usage
 =====
 
-* At Ecommerce checkout your customer's will be presented with the option to pay
-  with Monero
+* Go to accounting/Configuration/Currencies. The Monero currency is added to the list and can be activated/deactivated.
+* On the accounting Dashboard a new journal is created for the Monero Currency.
+  
+Helping modules
+=====
+* Automatic update the currency rates between fiat and crypto
+    * currency_rate_update_cmc
+        * https://github.com/OCA/currency/
+* Inverse method for converting currencies
+    * currency_rate_inverted
+        * https://github.com/OCA/currency/
+
 
 Bug Tracker
 ===========
@@ -57,6 +71,7 @@ Credits
 Contributors
 
 * T-900 <https://github.com/t-900-a>
+* bosd <https://github.com/bosd>
 
 Maintainers
 
