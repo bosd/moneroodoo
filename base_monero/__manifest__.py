@@ -24,5 +24,6 @@
     ],
     "installable": True,
     "application": True,
+    "post_init_hook": "_account_post_init",
     "classifiers": ["License :: OSI Approved :: MIT License"],
 }
