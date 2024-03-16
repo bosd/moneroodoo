@@ -10,7 +10,7 @@
     "development_status": "Alpha",
     # any module necessary for this one to work correctly
     "depends": [
-        "account_cryptocurrency",
+        "account_cryptocurrency", "account",
     ],
     # "external_dependencies": {"python": ["monero"]},
     # always loaded
@@ -24,5 +24,6 @@
     ],
     "installable": True,
     "application": True,
+    "post_init_hook": "_monero_journal_post_init",
     "classifiers": ["License :: OSI Approved :: MIT License"],
 }
